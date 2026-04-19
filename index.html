@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascent Trading Academy — Trade US Markets. The Canadian Way.</title>
+<meta name="description" content="Master US stock and options trading from Canada. Learn technical analysis, options strategies, and swing trading on NYSE & NASDAQ — with the Canadian tax, account, and FX intelligence that US educators ignore.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#090D14;--bg2:#0F1520;--bg3:#151C2B;--bg4:#1A2236;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);
+  --emerald:#00C896;--emerald-dark:#00A67A;--emerald-glow:rgba(0,200,150,0.15);
+  --gold:#D4A841;--gold-lt:#E8C76A;--gold-glow:rgba(212,168,65,0.12);
+  --red:#E54D4D;--red-glow:rgba(229,77,77,0.1);
+  --blue:#4A9EFF;--blue-glow:rgba(74,158,255,0.1);
+  --text:#E8ECF2;--muted:#7A8599;--silver:#B0BAC9;
+  --ff-head:'Outfit',sans-serif;
+  --ff-body:'Source Sans 3',sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-body);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.chk{width:14px;height:14px;flex-shrink:0}
+
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.025}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;
+  background:rgba(9,13,20,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--ff-head);font-weight:700;font-size:18px;letter-spacing:-.3px}
+.nav-logo svg{width:28px;height:28px}
+.nav-logo span{color:var(--emerald)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;color:var(--muted);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--emerald);color:var(--bg) !important;padding:9px 22px;border-radius:8px;font-weight:600;font-size:13px;letter-spacing:.2px;transition:all .2s}
+.nav-cta:hover{background:var(--emerald-dark);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* ═══ HERO ═══ */
+.hero{padding:140px 0 100px;position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:700px;
+  background:radial-gradient(ellipse,var(--emerald-glow) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;top:80px;right:-200px;width:600px;height:500px;
+  background:radial-gradient(ellipse,var(--blue-glow) 0%,transparent 70%);pointer-events:none}
+
+.hero-badge{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,200,150,0.08);border:1px solid rgba(0,200,150,0.2);
+  color:var(--emerald);font-family:var(--ff-mono);font-size:12px;font-weight:500;
+  padding:7px 18px;border-radius:100px;margin-bottom:32px;letter-spacing:.8px;text-transform:uppercase}
+.hero-badge::before{content:'';width:7px;height:7px;background:var(--emerald);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+.hero h1{font-family:var(--ff-head);font-size:clamp(38px,5.5vw,68px);font-weight:800;line-height:1.06;letter-spacing:-2px;margin-bottom:24px;max-width:780px;margin-left:auto;margin-right:auto}
+.hero h1 em{font-style:normal;color:var(--emerald)}
+.hero h1 .gold{color:var(--gold)}
+
+.hero-sub{font-size:19px;color:var(--silver);max-width:600px;line-height:1.7;margin:0 auto 40px}
+
+.hero-ctas{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.btn{display:inline-block;padding:14px 30px;border-radius:9px;font-weight:600;font-size:15px;transition:all .2s;cursor:pointer;border:none}
+.btn-emerald{background:var(--emerald);color:var(--bg)}
+.btn-emerald:hover{background:var(--emerald-dark);transform:translateY(-1px);box-shadow:0 8px 30px rgba(0,200,150,0.25)}
+.btn-outline{background:transparent;color:var(--silver);border:1px solid var(--border2)}
+.btn-outline:hover{border-color:var(--emerald);color:var(--emerald)}
+
+.hero-note{font-family:var(--ff-mono);font-size:12px;color:var(--muted);letter-spacing:.3px}
+
+.hero-trust{display:flex;justify-content:center;flex-wrap:wrap;gap:28px;margin-top:48px}
+.trust-item{display:flex;align-items:center;gap:8px;color:var(--silver);font-size:14px;font-weight:500}
+.trust-item svg{color:var(--emerald);flex-shrink:0}
+
+/* Ticker-style bar */
+.ticker-bar{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;position:relative}
+.ticker-inner{display:flex;gap:40px;animation:scroll 30s linear infinite;white-space:nowrap}
+.ticker-item{font-family:var(--ff-mono);font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-shrink:0}
+.ticker-item .up{color:var(--emerald)}
+.ticker-item .down{color:var(--red)}
+.ticker-item .sym{color:var(--silver);font-weight:600}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ SECTIONS ═══ */
+section{padding:100px 0}
+.section-label{font-family:var(--ff-mono);font-size:12px;color:var(--emerald);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+.section-title{font-family:var(--ff-head);font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-1px;line-height:1.15;margin-bottom:16px;max-width:600px}
+.section-desc{font-size:17px;color:var(--muted);line-height:1.7;max-width:520px}
+.center-text{text-align:center;max-width:640px;margin:0 auto}
+
+/* ═══ WHO THIS IS FOR ═══ */
+.audience{background:var(--bg2);border-bottom:1px solid var(--border)}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px}
+.audience-col{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:32px}
+.audience-col h3{font-family:var(--ff-head);font-size:20px;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.audience-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.audience-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--silver);line-height:1.5}
+.for-icon{color:var(--emerald)}
+.not-icon{color:var(--red)}
+
+/* ═══ PROBLEM ═══ */
+.problem{border-bottom:1px solid var(--border)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.problem-cards{display:flex;flex-direction:column;gap:16px}
+.p-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.p-card-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.p-card-icon.red{background:var(--red-glow);color:var(--red)}
+.p-card h4{font-family:var(--ff-head);font-size:15px;font-weight:600;margin-bottom:4px}
+.p-card p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* ═══ PILLARS ═══ */
+.pillar-hero{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:40px;margin-top:48px;position:relative;overflow:hidden}
+.pillar-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--emerald),var(--blue));border-radius:20px 20px 0 0}
+.pillar-hero .pillar-num{font-family:var(--ff-mono);font-size:11px;color:var(--emerald);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.pillar-hero h3{font-family:var(--ff-head);font-size:28px;font-weight:800;margin-bottom:12px;letter-spacing:-.5px}
+.pillar-hero>p{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:24px;max-width:600px}
+.pillar-hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ph-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px}
+.ph-card h4{font-family:var(--ff-head);font-size:15px;font-weight:600;margin-bottom:6px}
+.ph-card p{font-size:13px;color:var(--muted);line-height:1.5}
+.ph-card .ph-icon{font-size:24px;margin-bottom:10px}
+
+.pillars-secondary{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.pillar-sm{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px;transition:border-color .3s,transform .3s}
+.pillar-sm:hover{border-color:rgba(0,200,150,0.25);transform:translateY(-3px)}
+.pillar-sm .pillar-num{font-family:var(--ff-mono);font-size:11px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.pillar-sm .pillar-num::after{content:'';flex:1;height:1px;background:var(--border)}
+.pillar-sm h3{font-family:var(--ff-head);font-size:20px;font-weight:700;margin-bottom:8px;letter-spacing:-.3px}
+.pillar-sm p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.pillar-tags{display:flex;flex-wrap:wrap;gap:6px}
+.pillar-tag{font-family:var(--ff-mono);font-size:11px;background:var(--bg3);border:1px solid var(--border);color:var(--silver);padding:4px 10px;border-radius:6px}
+
+/* ═══ TRADING DESK ═══ */
+.desk{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.desk-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:48px}
+.desk-slot{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;position:relative}
+.desk-day{font-family:var(--ff-mono);font-size:11px;color:var(--emerald);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.desk-slot h4{font-family:var(--ff-head);font-size:15px;font-weight:600;margin-bottom:4px}
+.desk-slot p{font-size:12px;color:var(--muted);line-height:1.4}
+.desk-slot.active{border-color:var(--emerald);background:rgba(0,200,150,0.03)}
+
+/* ═══ CANADIAN LAYER ═══ */
+.edge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.edge-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:28px;text-align:center;transition:border-color .3s}
+.edge-card:hover{border-color:var(--gold)}
+.edge-icon{font-size:32px;margin-bottom:16px}
+.edge-card h4{font-family:var(--ff-head);font-size:17px;font-weight:600;margin-bottom:8px}
+.edge-card p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* ═══ PATHWAY ═══ */
+.pathway-track{display:flex;gap:0;margin-top:48px;position:relative}
+.pathway-track::before{content:'';position:absolute;top:32px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--emerald),var(--gold));opacity:.3}
+.phase{flex:1;text-align:center;position:relative;padding:0 12px}
+.phase-dot{width:16px;height:16px;border-radius:50%;background:var(--bg3);border:2px solid var(--emerald);margin:24px auto 20px;position:relative;z-index:2}
+.phase:nth-child(2) .phase-dot{border-color:var(--gold)}
+.phase:nth-child(3) .phase-dot{border-color:var(--gold-lt)}
+.phase:nth-child(4) .phase-dot{border-color:var(--emerald);background:var(--emerald)}
+.phase-label{font-family:var(--ff-mono);font-size:11px;color:var(--emerald);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.phase h4{font-family:var(--ff-head);font-size:17px;font-weight:600;margin-bottom:6px}
+.phase p{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* ═══ FIRST 7 DAYS ═══ */
+.days{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.days-timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:48px}
+.day-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.day-num{font-family:var(--ff-mono);font-size:24px;font-weight:700;color:var(--emerald);margin-bottom:8px}
+.day-card h4{font-family:var(--ff-head);font-size:14px;font-weight:600;margin-bottom:4px}
+.day-card p{font-size:12px;color:var(--muted);line-height:1.4}
+
+/* ═══ TRANSPARENCY ═══ */
+.transparency-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:48px}
+.trade-log{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.trade-log-hdr{background:var(--bg3);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:8px}
+.log-dot{width:10px;height:10px;border-radius:50%}
+.trade-log-title{font-family:var(--ff-mono);font-size:12px;color:var(--silver);margin-left:6px}
+.trade-log-body{padding:16px;overflow-x:auto}
+.log-row{display:grid;grid-template-columns:80px 1fr 70px 80px;gap:8px;padding:10px 12px;border-radius:8px;font-size:13px;align-items:center;min-width:340px}
+.log-row:nth-child(odd){background:var(--bg3)}
+.log-row .ticker{font-family:var(--ff-mono);font-weight:600;color:var(--text)}
+.log-row .desc{color:var(--muted)}
+.log-row .pnl{font-family:var(--ff-mono);font-weight:600;text-align:right}
+.log-row .pnl.green{color:var(--emerald)}
+.log-row .pnl.red{color:var(--red)}
+.log-row .acct{font-family:var(--ff-mono);font-size:11px;color:var(--muted);text-align:right}
+
+.anti-guru{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:32px;position:relative}
+.anti-guru::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--emerald),var(--gold));border-radius:14px 14px 0 0}
+.anti-guru h3{font-family:var(--ff-head);font-size:24px;font-weight:700;margin-bottom:12px}
+.anti-guru p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:12px}
+.promise-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.promise-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--silver)}
+.promise-list li svg{color:var(--emerald);flex-shrink:0}
+
+/* ═══ FOUNDER ═══ */
+.founder-card{display:grid;grid-template-columns:100px 1fr;gap:32px;background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:40px;margin-top:48px;align-items:center}
+.founder-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--emerald-glow),var(--gold-glow));border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--ff-head);font-size:36px;font-weight:700;color:var(--emerald)}
+.founder-card h3{font-family:var(--ff-head);font-size:22px;font-weight:700;margin-bottom:8px}
+.founder-card .founder-role{font-family:var(--ff-mono);font-size:12px;color:var(--emerald);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.founder-card p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:8px}
+
+/* ═══ COMMUNITY ═══ */
+.community{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.comm-features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.comm-feat{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:28px}
+.comm-feat h4{font-family:var(--ff-head);font-size:17px;font-weight:600;margin:16px 0 8px}
+.comm-feat p{font-size:14px;color:var(--muted);line-height:1.6}
+.comm-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.comm-icon.green{background:var(--emerald-glow);color:var(--emerald)}
+.comm-icon.amber{background:var(--gold-glow);color:var(--gold)}
+
+/* ═══ PROOF ═══ */
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.proof-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:28px}
+.proof-card p{font-size:15px;color:var(--silver);line-height:1.65;font-style:italic;margin-bottom:16px}
+.proof-author{font-family:var(--ff-mono);font-size:12px;color:var(--muted)}
+
+/* ═══ STARTER KIT ═══ */
+.starter{text-align:center}
+.starter-box{background:linear-gradient(135deg,var(--bg2),var(--bg3));border:1px solid var(--border2);border-radius:20px;padding:60px 40px;margin-top:40px;position:relative;overflow:hidden}
+.starter-box::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,var(--emerald-glow),transparent 70%);pointer-events:none}
+.starter-box h3{font-family:var(--ff-head);font-size:28px;font-weight:700;margin-bottom:12px;position:relative}
+.starter-box>p{font-size:16px;color:var(--muted);max-width:480px;margin:0 auto 32px;line-height:1.7;position:relative}
+.starter-items{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:32px;position:relative}
+.starter-item{font-family:var(--ff-mono);font-size:12px;background:var(--bg);border:1px solid var(--border);color:var(--silver);padding:8px 16px;border-radius:8px;display:flex;align-items:center;gap:6px}
+.starter-item svg{color:var(--emerald)}
+.email-form{display:flex;max-width:440px;margin:0 auto;gap:8px;position:relative}
+.email-form input{flex:1;padding:14px 18px;border-radius:9px;border:1px solid var(--border2);background:var(--bg);color:var(--text);font-size:15px;font-family:var(--ff-body);outline:none;transition:border-color .2s}
+.email-form input:focus{border-color:var(--emerald)}
+.email-form input::placeholder{color:var(--muted)}
+.email-form button{padding:14px 24px;border-radius:9px;background:var(--emerald);color:var(--bg);font-weight:700;font-size:14px;border:none;cursor:pointer;white-space:nowrap;transition:all .2s}
+.email-form button:hover{background:var(--emerald-dark)}
+.starter-note{font-family:var(--ff-mono);font-size:11px;color:var(--muted);margin-top:16px;position:relative}
+
+/* ═══ PRICING ═══ */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.price-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:32px;position:relative;transition:border-color .3s}
+.price-card.featured{border-color:var(--emerald);background:linear-gradient(180deg,rgba(0,200,150,0.04),var(--bg2))}
+.price-card.featured::before{content:'MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  font-family:var(--ff-mono);font-size:10px;letter-spacing:1px;background:var(--emerald);color:var(--bg);padding:4px 14px;border-radius:20px;font-weight:600}
+.price-tier{font-family:var(--ff-mono);font-size:12px;color:var(--emerald);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.price-name{font-family:var(--ff-head);font-size:22px;font-weight:700;margin-bottom:4px}
+.price-amount{font-family:var(--ff-head);font-size:36px;font-weight:800;margin:16px 0 4px}
+.price-amount span{font-size:16px;font-weight:400;color:var(--muted)}
+.price-desc{font-size:14px;color:var(--muted);margin-bottom:24px;line-height:1.5}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.price-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--silver);line-height:1.5}
+.price-features li svg{color:var(--emerald);flex-shrink:0;margin-top:2px}
+.price-btn{display:block;text-align:center;padding:13px;border-radius:9px;font-weight:600;font-size:14px;transition:all .2s}
+.price-btn.primary{background:var(--emerald);color:var(--bg)}
+.price-btn.primary:hover{background:var(--emerald-dark)}
+.price-btn.secondary{background:var(--bg3);color:var(--text);border:1px solid var(--border)}
+.price-btn.secondary:hover{border-color:var(--emerald)}
+.price-disclaimer{font-size:11px;color:var(--muted);margin-top:8px;text-align:center;font-family:var(--ff-mono)}
+
+.onboarding{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;text-align:center}
+.onboard-step{padding:24px}
+.onboard-num{font-family:var(--ff-head);font-size:32px;font-weight:800;color:var(--emerald);margin-bottom:8px}
+.onboard-step h4{font-family:var(--ff-head);font-size:16px;font-weight:600;margin-bottom:6px}
+.onboard-step p{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* ═══ FAQ ═══ */
+.faq{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-list{max-width:720px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:var(--ff-head);font-size:16px;font-weight:600;color:var(--text);transition:color .2s;gap:16px}
+.faq-q:hover{color:var(--emerald)}
+.faq-q svg{transition:transform .3s;flex-shrink:0;color:var(--muted)}
+.faq-item.open .faq-q svg{transform:rotate(45deg);color:var(--emerald)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a p{padding:0 0 20px;font-size:15px;color:var(--muted);line-height:1.7}
+
+/* ═══ FINAL CTA ═══ */
+.final-cta{text-align:center;padding:100px 0;position:relative}
+.final-cta::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,var(--emerald-glow),transparent 65%);pointer-events:none}
+.final-cta h2{font-family:var(--ff-head);font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-1px;margin-bottom:16px;position:relative}
+.final-cta p{font-size:17px;color:var(--muted);max-width:500px;margin:0 auto 32px;line-height:1.7;position:relative}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 0 32px}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px;flex-wrap:wrap;gap:32px}
+.footer-brand{max-width:320px}
+.footer-brand>p{font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px}
+.footer-links{display:flex;gap:48px}
+.footer-col h5{font-family:var(--ff-head);font-size:13px;font-weight:600;color:var(--text);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+.footer-col a{display:block;font-size:13px;color:var(--muted);margin-bottom:8px;transition:color .2s}
+.footer-col a:hover{color:var(--emerald)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:12px;color:var(--muted)}
+.footer-flag{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.no-affiliate{display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-mono);font-size:11px;color:var(--gold);background:var(--gold-glow);border:1px solid rgba(212,168,65,0.2);padding:4px 12px;border-radius:6px;margin-top:8px}
+
+.disclaimer{background:var(--bg);border-top:1px solid var(--border);padding:24px;text-align:center}
+.disclaimer p{font-size:11px;color:var(--muted);line-height:1.7;max-width:800px;margin:0 auto}
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-badge,.hero h1,.hero-sub,.hero-ctas,.hero-note,.hero-trust{animation:fadeUp .7s ease forwards;opacity:0}
+.hero h1{animation-delay:.1s}.hero-sub{animation-delay:.2s}.hero-ctas{animation-delay:.3s}.hero-note{animation-delay:.4s}.hero-trust{animation-delay:.5s}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:900px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);
+    flex-direction:column;padding:24px;gap:20px;transform:translateY(-120%);transition:transform .3s ease;z-index:999}
+  .nav-links.open{transform:translateY(0)}
+  .problem-grid,.transparency-split,.audience-grid,.founder-card{grid-template-columns:1fr;gap:32px}
+  .founder-card{text-align:center}.founder-avatar{margin:0 auto}
+  .pillar-hero-grid,.pillars-secondary,.edge-grid,.comm-features,.pricing-grid,.proof-grid,.onboarding,.desk-grid{grid-template-columns:1fr}
+  .days-timeline{grid-template-columns:repeat(3,1fr)}
+  .pathway-track{flex-direction:column;gap:24px}
+  .pathway-track::before{display:none}
+  .hero h1{font-size:clamp(32px,8vw,48px)}
+  .footer-top{flex-direction:column}
+  .email-form{flex-direction:column}
+  .email-form button{width:100%}
+}
+@media(max-width:600px){
+  section{padding:64px 0}
+  .hero{padding:110px 0 64px}
+  .days-timeline{grid-template-columns:1fr 1fr}
+  .desk-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ NAV ═══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 3L24 23H4L14 3Z" stroke="#00C896" stroke-width="2" fill="none"/><path d="M14 10L19 20H9L14 10Z" fill="#00C896" opacity="0.3"/></svg>
+      Ascent<span>Academy</span>
+    </a>
+    <div class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-links">
+      <a href="#system">The System</a>
+      <a href="#desk">Trading Desk</a>
+      <a href="#edge">Canadian Edge</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#starter" class="nav-cta">Get Free Starter Kit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════ HERO ═══ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-badge">For Canadian Traders &amp; Investors</div>
+    <h1>Trade <em>US Markets</em>.<br>The <span class="gold">Canadian</span> Way.</h1>
+    <p class="hero-sub">Master options, swing trading, and technical analysis on NYSE &amp; NASDAQ — with the tax intelligence, account strategy, and risk systems that US educators completely ignore.</p>
+    <div class="hero-ctas">
+      <a href="#starter" class="btn btn-emerald">Get My Free Trading Kit →</a>
+      <a href="#system" class="btn btn-outline">See the System</a>
+    </div>
+    <p class="hero-note">No credit card · No signals · Education only — not financial advice</p>
+    <div class="hero-trust">
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>NYSE &amp; NASDAQ Strategies</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Options &amp; Swing Trading</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>TFSA / RRSP Tax-Smart</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Broker-Neutral Education</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TICKER BAR ═══ -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <div class="ticker-item"><span class="sym">AAPL</span> 214.82 <span class="up">▲ 1.3%</span></div>
+    <div class="ticker-item"><span class="sym">NVDA</span> 892.40 <span class="up">▲ 2.1%</span></div>
+    <div class="ticker-item"><span class="sym">TSLA</span> 178.55 <span class="down">▼ 0.8%</span></div>
+    <div class="ticker-item"><span class="sym">MSFT</span> 428.30 <span class="up">▲ 0.6%</span></div>
+    <div class="ticker-item"><span class="sym">AMD</span> 162.18 <span class="down">▼ 1.2%</span></div>
+    <div class="ticker-item"><span class="sym">AMZN</span> 198.44 <span class="up">▲ 1.8%</span></div>
+    <div class="ticker-item"><span class="sym">META</span> 512.70 <span class="up">▲ 0.9%</span></div>
+    <div class="ticker-item"><span class="sym">SHOP.TO</span> 108.22 <span class="up">▲ 2.4%</span></div>
+    <!-- duplicate for seamless scroll -->
+    <div class="ticker-item"><span class="sym">AAPL</span> 214.82 <span class="up">▲ 1.3%</span></div>
+    <div class="ticker-item"><span class="sym">NVDA</span> 892.40 <span class="up">▲ 2.1%</span></div>
+    <div class="ticker-item"><span class="sym">TSLA</span> 178.55 <span class="down">▼ 0.8%</span></div>
+    <div class="ticker-item"><span class="sym">MSFT</span> 428.30 <span class="up">▲ 0.6%</span></div>
+    <div class="ticker-item"><span class="sym">AMD</span> 162.18 <span class="down">▼ 1.2%</span></div>
+    <div class="ticker-item"><span class="sym">AMZN</span> 198.44 <span class="up">▲ 1.8%</span></div>
+    <div class="ticker-item"><span class="sym">META</span> 512.70 <span class="up">▲ 0.9%</span></div>
+    <div class="ticker-item"><span class="sym">SHOP.TO</span> 108.22 <span class="up">▲ 2.4%</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ WHO THIS IS FOR ═══ -->
+<section class="audience" id="audience">
+  <div class="wrap">
+    <div class="center-text">
+      <div class="section-label">Who This Is For</div>
+      <h2 class="section-title" style="margin:0 auto 16px">Built for Serious Canadian Traders. Not Everyone.</h2>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-col">
+        <h3><span class="for-icon">✓</span> This Is For You If…</h3>
+        <ul class="audience-list">
+          <li><svg class="chk for-icon" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>You want to trade US stocks and options from Canada with a real system</li>
+          <li><svg class="chk for-icon" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>You want to understand technical analysis, chart patterns, and entries/exits</li>
+          <li><svg class="chk for-icon" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>You also want long-term investing strategies for TSX + US holdings</li>
+          <li><svg class="chk for-icon" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>You're frustrated that US trading education ignores Canadian tax rules</li>
+          <li><svg class="chk for-icon" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>You value risk management and discipline over hot tips and signals</li>
+        </ul>
+      </div>
+      <div class="audience-col">
+        <h3><span class="not-icon">✕</span> This Is NOT For You If…</h3>
+        <ul class="audience-list">
+          <li><svg class="chk not-icon" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>You're looking for get-rich-quick trading signals</li>
+          <li><svg class="chk not-icon" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>You want someone to tell you exactly what to buy and when</li>
+          <li><svg class="chk not-icon" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>You're only interested in crypto or meme stock gambling</li>
+          <li><svg class="chk not-icon" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>You don't want to practice on a simulator before going live</li>
+          <li><svg class="chk not-icon" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>You think trading is a lottery — not a skill to develop</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PROBLEM ═══ -->
+<section class="problem" id="problem">
+  <div class="wrap">
+    <div class="problem-grid">
+      <div>
+        <div class="section-label">The Problem</div>
+        <h2 class="section-title">US Trading Education Was Never Built for You</h2>
+        <p class="section-desc">Every major trading course teaches you setups, charts, and strategies. None of them teach you what happens when you execute those trades from a TFSA, convert CAD to USD, or file with the CRA. That's a different game entirely.</p>
+      </div>
+      <div class="problem-cards">
+        <div class="p-card"><div class="p-card-icon red">✕</div><div><h4>Great Setups, Wrong Account</h4><p>That options trade your US guru taught you? Execute it in the wrong Canadian account and you'll either pay unnecessary tax or violate TFSA rules.</p></div></div>
+        <div class="p-card"><div class="p-card-icon red">✕</div><div><h4>$50+ Lost on Every USD Trade</h4><p>Every time you buy a US stock without understanding currency conversion strategies, your broker takes a cut you never see on the statement.</p></div></div>
+        <div class="p-card"><div class="p-card-icon red">✕</div><div><h4>Emotions Kill More Accounts Than Bad Charts</h4><p>FOMO entries, revenge trades, oversizing after a win streak — no technical analysis course teaches you the behavioral systems to survive.</p></div></div>
+        <div class="p-card"><div class="p-card-icon red">✕</div><div><h4>Tax Season Surprise</h4><p>T5008 slips, ACB calculations, superficial loss rules — come April, most Canadian traders realize they've been tracking nothing all year.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ THE SYSTEM ═══ -->
+<section id="system">
+  <div class="wrap">
+    <div class="center-text">
+      <div class="section-label">The Ascent System</div>
+      <h2 class="section-title" style="margin:0 auto 16px">Trading + Investing + Canadian Intelligence. One System.</h2>
+      <p class="section-desc" style="margin:0 auto">Trading is the main event. Investing builds your long-term wealth. The Canadian layer makes sure you keep what you earn.</p>
+    </div>
+
+    <!-- PILLAR 1: TRADING — THE BIG ONE -->
+    <div class="pillar-hero">
+      <div class="pillar-num">Pillar 01 — The Main Event</div>
+      <h3>Trading US Markets</h3>
+      <p>Technical analysis, options strategies, and swing trading on NYSE &amp; NASDAQ. This is the core skill — reading charts, finding setups, managing entries and exits, and building a repeatable edge.</p>
+      <div class="pillar-hero-grid">
+        <div class="ph-card"><div class="ph-icon">📊</div><h4>Technical Analysis</h4><p>Chart patterns, support/resistance, volume analysis, trend identification, candlestick reading. The visual language of the market.</p></div>
+        <div class="ph-card"><div class="ph-icon">⚡</div><h4>Options Strategies</h4><p>Covered calls, credit spreads, debit spreads, protective puts. Income generation and hedging — not gambling.</p></div>
+        <div class="ph-card"><div class="ph-icon">🎯</div><h4>Swing Trading</h4><p>Multi-day setups, momentum plays, breakout patterns. Finding high-probability trades with defined risk and clear exit plans.</p></div>
+        <div class="ph-card"><div class="ph-icon">🔍</div><h4>Screening &amp; Watchlists</h4><p>How to scan for setups, build daily watchlists, and filter the noise. Find trade candidates systematically, not randomly.</p></div>
+        <div class="ph-card"><div class="ph-icon">📐</div><h4>Entries, Exits &amp; Position Sizing</h4><p>When to get in, when to get out, and how much to risk. The execution framework that keeps you alive.</p></div>
+        <div class="ph-card"><div class="ph-icon">🧠</div><h4>Trading Psychology</h4><p>FOMO, revenge trading, overconfidence, loss aversion. The behavioral checklists and journaling habits that separate survivors from casualties.</p></div>
+      </div>
+    </div>
+
+    <!-- PILLARS 2, 3, 4 -->
+    <div class="pillars-secondary">
+      <div class="pillar-sm">
+        <div class="pillar-num">Pillar 02</div>
+        <h3>Investing Across Borders</h3>
+        <p>Long-term wealth building across TSX and US markets. ETFs, dividends, fundamental analysis, and growth strategies for the patient side of your portfolio.</p>
+        <div class="pillar-tags"><span class="pillar-tag">ETFs &amp; Index</span><span class="pillar-tag">Dividends</span><span class="pillar-tag">Fundamental Analysis</span><span class="pillar-tag">TSX + US Allocation</span></div>
+      </div>
+      <div class="pillar-sm">
+        <div class="pillar-num">Pillar 03</div>
+        <h3>Canadian Tax &amp; Account Intelligence</h3>
+        <p>The layer US educators don't know exists. TFSA vs RRSP vs margin decisions, Norbert's Gambit, ACB tracking, superficial loss rules, W-8BEN — all broker-neutral.</p>
+        <div class="pillar-tags"><span class="pillar-tag">TFSA / RRSP / Margin</span><span class="pillar-tag">Norbert's Gambit</span><span class="pillar-tag">ACB &amp; CRA</span><span class="pillar-tag">W-8BEN</span></div>
+      </div>
+      <div class="pillar-sm">
+        <div class="pillar-num">Pillar 04</div>
+        <h3>Portfolio OS</h3>
+        <p>Unify trading and investing into one managed system. Model portfolios by life stage, rebalancing calendars, risk rules, and annual Tax Season Survival workshops.</p>
+        <div class="pillar-tags"><span class="pillar-tag">Model Portfolios</span><span class="pillar-tag">Risk Rules</span><span class="pillar-tag">Rebalancing</span><span class="pillar-tag">Tax-Loss Harvesting</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ TRADING DESK ═══ -->
+<section class="desk" id="desk">
+  <div class="wrap">
+    <div class="center-text">
+      <div class="section-label">The Trading Desk</div>
+      <h2 class="section-title" style="margin:0 auto 16px">Your Weekly Trading Rhythm</h2>
+      <p class="section-desc" style="margin:0 auto">Not a portfolio check-in. A structured trading week that keeps you sharp, disciplined, and accountable.</p>
+    </div>
+    <div class="desk-grid">
+      <div class="desk-slot active"><div class="desk-day">Monday</div><h4>Pre-Market Scan</h4><p>Watchlist built. US market context. Key levels marked. Week's setups identified.</p></div>
+      <div class="desk-slot"><div class="desk-day">Tuesday</div><h4>Live Setups</h4><p>Chart review. Trade candidates analyzed. Decision Framework applied to each.</p></div>
+      <div class="desk-slot"><div class="desk-day">Wednesday</div><h4>Options Focus</h4><p>Covered call candidates. Spread setups. Premium analysis and Greeks review.</p></div>
+      <div class="desk-slot"><div class="desk-day">Thursday</div><h4>Risk Check</h4><p>Portfolio heat map. Position sizing review. Allocation drift. Adjustment triggers.</p></div>
+      <div class="desk-slot"><div class="desk-day">Friday</div><h4>Journal &amp; Review</h4><p>What worked, what didn't. Emotional check-in. Mistake analysis. Next week prep.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CANADIAN EDGE ═══ -->
+<section id="edge">
+  <div class="wrap">
+    <div class="center-text">
+      <div class="section-label">The Canadian Edge</div>
+      <h2 class="section-title" style="margin:0 auto 16px">The Tax &amp; Account Intelligence Your US Guru Doesn't Have</h2>
+      <p class="section-desc" style="margin:0 auto">Broker-neutral education. Whatever platform you trade on, here's how to make your Canadian accounts work harder.</p>
+    </div>
+    <div class="edge-grid">
+      <div class="edge-card"><div class="edge-icon">🇨🇦</div><h4>TFSA / RRSP / Margin Decision Tree</h4><p>Which account for US options? Where to hold US dividends? When does margin make sense? Every scenario mapped — your broker, your choice.</p></div>
+      <div class="edge-card"><div class="edge-icon">💱</div><h4>Norbert's Gambit Deep Dive</h4><p>Save $500+ per conversion. Detailed walkthroughs of the mechanics so you can execute on whichever platform you use.</p></div>
+      <div class="edge-card"><div class="edge-icon">📊</div><h4>ACB Tracking &amp; T5008</h4><p>DRIP adjustments, return of capital, superficial loss rules — with a tracker spreadsheet you can actually use at tax time.</p></div>
+      <div class="edge-card"><div class="edge-icon">📋</div><h4>Tax Season Survival Workshop</h4><p>Live January–April annual workshop. T5008 reconciliation, capital gains optimization, TFSA contribution room tracking.</p></div>
+      <div class="edge-card"><div class="edge-icon">⚖️</div><h4>Superficial Loss Rules</h4><p>The 30-day rule that catches Canadian traders off guard. Real examples, real consequences, real navigation strategies.</p></div>
+      <div class="edge-card"><div class="edge-icon">📄</div><h4>W-8BEN &amp; US Withholding</h4><p>How US dividends get taxed for Canadians. Which form to file. Which account type minimizes the hit. No broker-specific bias.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PATHWAY ═══ -->
+<section id="pathway">
+  <div class="wrap">
+    <div class="center-text">
+      <div class="section-label">The Pathway</div>
+      <h2 class="section-title" style="margin:0 auto 16px">From Paper Trading to Consistent Execution</h2>
+      <p class="section-desc" style="margin:0 auto">A structured graduation. You don't trade live money until you've proven consistency on a simulator.</p>
+    </div>
+    <div class="pathway-track">
+      <div class="phase"><div class="phase-dot"></div><div class="phase-label">Phase 1</div><h4>Learn</h4><p>Chart reading, account setup, the Ascent Decision Framework, and your first watchlist.</p></div>
+      <div class="phase"><div class="phase-dot"></div><div class="phase-label">Phase 2</div><h4>Simulate</h4><p>30 days of paper trading. Track consistency, not profits. Build the journal habit.</p></div>
+      <div class="phase"><div class="phase-dot"></div><div class="phase-label">Phase 3</div><h4>Execute</h4><p>Small-size live trading with strict risk rules. Graduate from surviving to consistent.</p></div>
+      <div class="phase"><div class="phase-dot"></div><div class="phase-label">Phase 4</div><h4>Optimize</h4><p>Advanced options, portfolio-level risk, tax optimization, and model portfolio mastery.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:40px"><p style="font-family:var(--ff-mono);font-size:12px;color:var(--muted);letter-spacing:.5px">Earn badges: <span style="color:var(--emerald)">Simulator Graduate</span> · <span style="color:var(--gold)">Options Certified</span> · <span style="color:var(--silver)">Portfolio OS Pro</span></p></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FIRST 7 DAYS ═══ -->
+<section class="days" id="days">
+  <div class="wrap">
+    <div class="center-text">
+      <div class="section-label">What Happens When You Join</div>
+      <h2 class="section-title" style="margin:0 auto 16px">Your First 7 Days Inside Ascent</h2>
+      <p class="section-desc" style="margin:0 auto">From signup to your first paper trade — every step mapped out.</p>
+    </div>
+    <div class="days-timeline">
+      <div class="day-card"><div class="day-num">1</div><h4>System Onboarding</h4><p>Orientation, tools setup, Decision Framework intro.</p></div>
+      <div class="day-card"><div class="day-num">2</div><h4>Account Strategy</h4><p>TFSA vs RRSP vs Margin — pick the right setup for US trading.</p></div>
+      <div class="day-card"><div class="day-num">3</div><h4>First Watchlist</h4><p>Build your first US market watchlist. Learn to read a chart.</p></div>
+      <div class="day-card"><div class="day-num">5</div><h4>Paper Trading</h4><p>Execute your first simulated trade. Start your trade journal.</p></div>
+      <div class="day-card"><div class="day-num">7</div><h4>Pod Review</h4><p>Join your Cadet Pod. Review your first week. Get feedback.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ TRANSPARENCY ═══ -->
+<section id="transparency">
+  <div class="wrap">
+    <div class="section-label">Radical Transparency</div>
+    <h2 class="section-title">No Lambos. No Fake P&amp;L. Just Real Trades.</h2>
+    <div class="transparency-split">
+      <div class="trade-log">
+        <div class="trade-log-hdr">
+          <div class="log-dot" style="background:var(--red)"></div><div class="log-dot" style="background:var(--gold)"></div><div class="log-dot" style="background:var(--emerald)"></div>
+          <span class="trade-log-title">public_trade_log.csv — Q1 2026</span>
+        </div>
+        <div class="trade-log-body">
+          <div class="log-row" style="font-weight:600;color:var(--muted);font-size:12px;font-family:var(--ff-mono)"><span>TICKER</span><span>STRATEGY</span><span style="text-align:right">P&L</span><span style="text-align:right">ACCT</span></div>
+          <div class="log-row"><span class="ticker">AAPL</span><span class="desc">Covered call — weekly</span><span class="pnl green">+$315</span><span class="acct">RRSP</span></div>
+          <div class="log-row"><span class="ticker">NVDA</span><span class="desc">Swing — breakout above 880</span><span class="pnl green">+$920</span><span class="acct">Margin</span></div>
+          <div class="log-row"><span class="ticker">AMD</span><span class="desc">FOMO entry — no setup</span><span class="pnl red">−$445</span><span class="acct">TFSA</span></div>
+          <div class="log-row"><span class="ticker">MSFT</span><span class="desc">Credit spread — earnings play</span><span class="pnl green">+$180</span><span class="acct">Margin</span></div>
+          <div class="log-row"><span class="ticker">TSLA</span><span class="desc">Revenge trade — broke rules</span><span class="pnl red">−$620</span><span class="acct">Margin</span></div>
+          <div class="log-row"><span class="ticker">META</span><span class="desc">Swing — trend continuation</span><span class="pnl green">+$540</span><span class="acct">TFSA</span></div>
+        </div>
+      </div>
+      <div class="anti-guru">
+        <h3>The Anti-Guru Promise</h3>
+        <p>We publish real trade logs — wins and losses. We analyze every mistake. We never claim you'll make money. Because that's how trust actually works in this industry.</p>
+        <ul class="promise-list">
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Real trade logs published quarterly</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Losing trades shown and analyzed — not deleted</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Zero income claims — trading involves risk of loss</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Education only — we never tell you what to buy or sell</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Broker-neutral — no affiliate deals, no kickbacks</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>No Lamborghini thumbnails — ever</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOUNDER ═══ -->
+<section id="founder">
+  <div class="wrap">
+    <div class="section-label">Who Built This</div>
+    <h2 class="section-title">Not a Guru. A Trader Who Needed Better Tools.</h2>
+    <div class="founder-card">
+      <div class="founder-avatar">S</div>
+      <div>
+        <h3>Sandy</h3>
+        <div class="founder-role">Founder · Ascent Trading Academy</div>
+        <p>I built Ascent because I got tired of learning US trading strategies that fell apart the moment I tried to execute them from a Canadian account. The setups worked — but nobody told me about the FX fees, the TFSA rules on options, the ACB nightmare at tax time, or why my US dividend strategy was getting hit with withholding tax.</p>
+        <p>This is the academy I wish existed when I started. Not another course library — a complete system for Canadians who trade US markets and want to do it with discipline, proper risk management, and full awareness of the Canadian tax layer that changes everything.</p>
+        <p style="color:var(--emerald);font-weight:600;font-size:14px">My philosophy: Protect capital first. Build systems second. Grow wealth third.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ COMMUNITY ═══ -->
+<section class="community" id="community">
+  <div class="wrap">
+    <div class="center-text">
+      <div class="section-label">Trading Floor</div>
+      <h2 class="section-title" style="margin:0 auto 16px">A Trading Community. Not a Chatroom.</h2>
+      <p class="section-desc" style="margin:0 auto">Structured cohorts, daily watchlists, trade reviews, and accountability. Not 10,000 people posting rocket emojis.</p>
+    </div>
+    <div class="comm-features">
+      <div class="comm-feat"><div class="comm-icon green">👥</div><h4>Cadet Pods</h4><p>New members join small cohorts of 10. Learn together, trade together, hold each other accountable.</p></div>
+      <div class="comm-feat"><div class="comm-icon amber">🎯</div><h4>Daily Pre-Market Watchlist</h4><p>US stocks on our radar each morning. Not signals — context. What we're watching, key levels, and which setups we're tracking.</p></div>
+      <div class="comm-feat"><div class="comm-icon green">📓</div><h4>Trade Review Channel</h4><p>Post your setups, share your journal, get feedback. Real trade analysis — not gain porn.</p></div>
+      <div class="comm-feat"><div class="comm-icon amber">📈</div><h4>Weekly Market Brief</h4><p>Every week: what moved, what's ahead, macro context, and how the Decision Framework reads the current market.</p></div>
+      <div class="comm-feat"><div class="comm-icon green">🧠</div><h4>Psychology of Trading</h4><p>Weekly live call. FOMO traps, revenge trading triggers, position sizing discipline. The mental game that determines survival.</p></div>
+      <div class="comm-feat"><div class="comm-icon amber">🏅</div><h4>Milestone Celebrations</h4><p>Completed 30 days on the simulator? Executed your first covered call? We celebrate process milestones — not P&L screenshots.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ SOCIAL PROOF ═══ -->
+<section id="proof">
+  <div class="wrap">
+    <div class="center-text">
+      <div class="section-label">Early Traders</div>
+      <h2 class="section-title" style="margin:0 auto 16px">What Members Are Saying</h2>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card"><p>"The Decision Framework changed how I approach every trade. I stopped impulse-buying and started waiting for setups that match the checklist."</p><div class="proof-author">— K.M., Software Engineer, Toronto</div></div>
+      <div class="proof-card"><p>"I was doing Norbert's Gambit wrong for two years. The deep dive saved me more in FX fees than the membership costs all year."</p><div class="proof-author">— R.S., Accountant, Calgary</div></div>
+      <div class="proof-card"><p>"The simulator graduation path is what sold me. Every other academy throws you into live markets on day one. This one makes you earn it."</p><div class="proof-author">— A.P., Engineer, Vancouver</div></div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-family:var(--ff-mono);font-size:11px;color:var(--muted)">Testimonials reflect individual experiences. Results vary. Trading involves risk of loss. Not financial advice.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ STARTER KIT ═══ -->
+<section class="starter" id="starter">
+  <div class="wrap">
+    <div class="section-label">Free Download</div>
+    <h2 class="section-title" style="margin:0 auto 0">The Canadian Trader's Starter Kit</h2>
+    <div class="starter-box">
+      <h3>Everything You Need to Start — $0</h3>
+      <p>Tools, templates, and cheat sheets for Canadians trading US markets. Updated for 2026 tax rules. No account required.</p>
+      <div class="starter-items">
+        <div class="starter-item"><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>TFSA vs RRSP Decision Tree</div>
+        <div class="starter-item"><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>ACB Tracker Spreadsheet</div>
+        <div class="starter-item"><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Norbert's Gambit Calculator</div>
+        <div class="starter-item"><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Trade Journal Template</div>
+        <div class="starter-item"><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Pre-Trade Checklist</div>
+      </div>
+      <form class="email-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Sent! Check inbox ✓';this.querySelector('button').style.background='var(--emerald-dark)'">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit">Get My Free Trading Kit</button>
+      </form>
+      <p class="starter-note">Download takes 30 seconds · No spam · Unsubscribe anytime</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PRICING ═══ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="center-text">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title" style="margin:0 auto 16px">Simple. Transparent. Cancel Anytime.</h2>
+      <p class="section-desc" style="margin:0 auto">All prices in CAD. No lock-in. Most traders start with Operator.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Free Tier</div>
+        <div class="price-name">Explorer</div>
+        <div class="price-amount">$0<span> / forever</span></div>
+        <p class="price-desc">YouTube content, Starter Kit, and a preview of the Ascent System.</p>
+        <ul class="price-features">
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Canadian Trader's Starter Kit</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>YouTube trading education</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>TFSA/RRSP decision tree</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Community preview</li>
+        </ul>
+        <a href="#starter" class="price-btn secondary">Get Starter Kit</a>
+        <p class="price-disclaimer">Education only — not financial advice</p>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tier">Core</div>
+        <div class="price-name">Operator</div>
+        <div class="price-amount">$49<span> / mo CAD</span></div>
+        <p class="price-desc">Full trading system. Courses, community, weekly trading desk, and all tools.</p>
+        <ul class="price-features">
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>All 4 pillar courses (trading, investing, tax, portfolio)</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Cadet Pod community</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Weekly Trading Desk rhythm</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Daily pre-market US watchlist</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>All templates, trackers &amp; checklists</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Tax Season Survival workshop</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Simulator graduation path</li>
+        </ul>
+        <a href="#" class="price-btn primary">Start Free → Upgrade Later</a>
+        <p class="price-disclaimer">Cancel in 2 clicks · Education only</p>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Premium</div>
+        <div class="price-name">Architect</div>
+        <div class="price-amount">$149<span> / mo CAD</span></div>
+        <p class="price-desc">Everything in Operator + live coaching, 1:1 trade reviews, and priority access.</p>
+        <ul class="price-features">
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Everything in Operator</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Monthly live coaching calls</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>1:1 trade &amp; portfolio reviews</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Model portfolios (updated monthly)</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Priority Discord access</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>AI-powered learning roadmap</li>
+        </ul>
+        <a href="#" class="price-btn secondary">Apply for Premium</a>
+        <p class="price-disclaimer">Limited spots · Education only</p>
+      </div>
+    </div>
+    <div class="onboarding">
+      <div class="onboard-step"><div class="onboard-num">1</div><h4>Get Your Checklist</h4><p>Personalized onboarding within 5 minutes of joining.</p></div>
+      <div class="onboard-step"><div class="onboard-num">2</div><h4>Join Your Pod</h4><p>Get matched with 9 other traders at your level.</p></div>
+      <div class="onboard-step"><div class="onboard-num">3</div><h4>First Watchlist</h4><p>Build your first US market watchlist on Day 1.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FAQ ═══ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="center-text">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title" style="margin:0 auto 0">Common Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this financial advice?<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 4V14M4 9H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="faq-a"><p>No. Ascent Trading Academy is education only. We teach frameworks, strategies, and systems — we never tell you what to buy or sell. All trading decisions are yours. We are not licensed investment advisors. Always consult a qualified financial professional.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need a specific brokerage?<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 4V14M4 9H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="faq-a"><p>No. Our education is completely broker-neutral. You use whichever platform you prefer. We teach the concepts and mechanics — the execution platform is your choice. We have no affiliate deals with any brokerage.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need a lot of money to start?<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 4V14M4 9H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="faq-a"><p>No. We strongly recommend paper trading before risking real capital. Our Pathway requires 30 days on a simulator before going live. Start learning with zero capital at risk.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this only day trading?<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 4V14M4 9H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="faq-a"><p>No. We teach swing trading, options strategies, and long-term investing — all unified under one system. Most of our strategies are multi-day or multi-week holds, not intraday scalping.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why focus on US markets?<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 4V14M4 9H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="faq-a"><p>US markets (NYSE, NASDAQ) offer the deepest liquidity, the most active options chains, and the widest range of tradable stocks. Canadian brokerages give you full access. We also cover TSX for long-term investing — but active trading happens primarily on US exchanges.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why is this "for Canadians" specifically?<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 4V14M4 9H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="faq-a"><p>Because trading US stocks from Canada creates unique challenges: TFSA/RRSP rules on options and US dividends, currency conversion costs, ACB tracking for the CRA, superficial loss rules, W-8BEN requirements. No US-based academy teaches any of this.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I cancel anytime?<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 4V14M4 9H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="faq-a"><p>Yes. No contracts, no lock-in. Cancel in 2 clicks from your account. If the system isn't delivering value, you shouldn't be paying for it.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FINAL CTA ═══ -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Ready to Trade US Markets<br>Like a Pro — From Canada?</h2>
+    <p>The strategies. The Canadian tax layer. The risk systems. The community. All in one place. Start free.</p>
+    <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;position:relative">
+      <a href="#starter" class="btn btn-emerald">Get My Free Trading Kit →</a>
+      <a href="#pricing" class="btn btn-outline">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="font-size:20px"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px"><path d="M14 3L24 23H4L14 3Z" stroke="#00C896" stroke-width="2" fill="none"/><path d="M14 10L19 20H9L14 10Z" fill="#00C896" opacity="0.3"/></svg>Ascent<span>Academy</span></a>
+        <p>Trade US Markets. The Canadian Way. Options, swing trading, and technical analysis on NYSE &amp; NASDAQ — with the Canadian tax and account intelligence that changes everything.</p>
+        <div class="no-affiliate">⚡ Broker-Neutral — Zero Affiliate Deals</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h5>System</h5><a href="#system">Trading US Markets</a><a href="#desk">Trading Desk</a><a href="#edge">Canadian Edge</a><a href="#pathway">The Pathway</a><a href="#transparency">Transparency</a></div>
+        <div class="footer-col"><h5>Join</h5><a href="#pricing">Pricing</a><a href="#starter">Free Trading Kit</a><a href="#community">Community</a><a href="#faq">FAQ</a></div>
+        <div class="footer-col"><h5>Contact</h5><a href="https://mail.google.com/mail/?view=cm&to=support@ascenttradingacademy.com" target="_blank">support@ascenttradingacademy.com</a><a href="#">YouTube</a><a href="#">Discord</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Ascent Trading Academy. All rights reserved. Ontario, Canada.</p>
+      <div class="footer-flag">🇨🇦 Built in Canada, for Canadians</div>
+    </div>
+  </div>
+</footer>
+
+<div class="disclaimer">
+  <p><strong>Important Disclaimer:</strong> Ascent Trading Academy provides educational content only. Nothing on this website constitutes financial, investment, tax, or legal advice. All trading and investing involves significant risk, including the potential loss of principal. Past performance does not guarantee future results. We do not make income claims or guarantee profits. Most traders lose money. Always consult a qualified financial advisor, tax professional, or legal counsel before making investment decisions. Ascent Trading Academy is not registered with any securities regulatory authority. We have no affiliate relationships with any brokerage. Content is for informational and educational purposes only. Testimonials reflect individual experiences and are not representative of all members.</p>
+</div>
+
+</body>
+</html>
