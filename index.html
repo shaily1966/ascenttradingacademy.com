@@ -55,8 +55,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;background:r
 .btn-emerald:hover{background:var(--emerald-dark);transform:translateY(-1px);box-shadow:0 8px 30px rgba(0,200,150,0.25)}
 .btn-outline{background:transparent;color:var(--silver);border:1px solid var(--border2);padding:14px 30px;border-radius:9px;font-weight:600;font-size:15px;transition:all .2s;display:inline-block}
 .btn-outline:hover{border-color:var(--emerald);color:var(--emerald)}
-.btn-gold{background:var(--gold);color:var(--bg)}
+.btn-gold{background:var(--gold);color:var(--bg);display:inline-block;padding:14px 30px;border-radius:9px;font-weight:600;font-size:15px;cursor:pointer;transition:all .2s}
 .btn-gold:hover{background:#C09838;transform:translateY(-1px);box-shadow:0 8px 30px var(--gold-glow)}
+.btn-whatsapp{background:#25D366;color:#fff;display:inline-block;padding:14px 30px;border-radius:9px;font-weight:600;font-size:15px;cursor:pointer;transition:all .2s}
+.btn-whatsapp:hover{background:#1EBE57;transform:translateY(-1px)}
+.contact-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
 .hero-ctas{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
 .hero-note{font-family:var(--ff-mono);font-size:11px;color:var(--muted);letter-spacing:.3px}
 
@@ -92,7 +95,7 @@ section{padding:80px 0}
 .pillar-price{font-family:var(--ff-head);font-size:28px;font-weight:800;margin-bottom:4px}
 .pillar-price span{font-size:14px;font-weight:400;color:var(--muted)}
 .pillar-price-note{font-size:13px;color:var(--muted);margin-bottom:16px}
-.pillar-btn{display:block;text-align:center;padding:13px;border-radius:9px;font-weight:600;font-size:14px;transition:all .2s}
+.pillar-btn{display:block;text-align:center;padding:13px;border-radius:9px;font-weight:600;font-size:14px;transition:all .2s;cursor:pointer}
 .pillar-btn.green{background:var(--emerald);color:var(--bg)}
 .pillar-btn.green:hover{background:var(--emerald-dark)}
 .pillar-btn.amber{background:var(--gold);color:var(--bg)}
@@ -267,8 +270,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 0 2
           <li><svg class="amber" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Long-term wealth building roadmap</li>
         </ul>
         <div class="pillar-price-note" style="margin-top:auto">Pricing discussed based on portfolio complexity</div>
-        <a href="mailto:sandeep89shaily@gmail.com?subject=Portfolio%20Review%20Inquiry" class="pillar-btn amber">Email Us →</a>
-        <a href="https://wa.me/16473549898?text=Hi%2C%20I%27m%20interested%20in%20portfolio%20review%20services" class="pillar-btn amber" style="margin-top:8px;background:transparent;border:1px solid #D4A841;color:#D4A841" target="_blank">WhatsApp Us →</a>
+        <div class="contact-btns">
+          <a href="mailto:sandeep89shaily@gmail.com?subject=Portfolio%20Review%20Inquiry" class="pillar-btn amber">Email Us →</a>
+          <a href="https://wa.me/16473549898?text=Hi%2C%20I%27m%20interested%20in%20portfolio%20review%20services" class="pillar-btn" style="background:#25D366;color:#fff" target="_blank">WhatsApp Us →</a>
+        </div>
       </div>
 
       <!-- PILLAR 3: ONGOING HANDHOLDING -->
@@ -368,8 +373,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 0 2
       </div>
     </div>
     <div style="text-align:center;margin-top:32px">
-      <a href="mailto:sandeep89shaily@gmail.com?subject=Portfolio%20Review%20Inquiry" class="btn btn-gold">Email Us →</a>
-      <a href="https://wa.me/16473549898?text=Hi%2C%20I%27m%20interested%20in%20portfolio%20review%20services" class="btn-outline" style="border-color:#D4A841;color:#D4A841" target="_blank">WhatsApp Us →</a>
+      <div class="contact-btns" style="justify-content:center">
+        <a href="mailto:sandeep89shaily@gmail.com?subject=Portfolio%20Review%20Inquiry" class="btn btn-gold">Email Us →</a>
+        <a href="https://wa.me/16473549898?text=Hi%2C%20I%27m%20interested%20in%20portfolio%20review%20services" class="btn btn-whatsapp" target="_blank">WhatsApp Us →</a>
+      </div>
       <p style="font-family:var(--ff-mono);font-size:11px;color:var(--muted);margin-top:10px">Pricing based on portfolio complexity · Education only — not financial advice</p>
     </div>
   </div>
@@ -431,8 +438,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 0 2
     <p>Learn to trade. Get your portfolio optimized. Stay mentored as you grow.</p>
     <div class="final-ctas">
       <a href="#course" class="btn btn-emerald">Trading Course — $299 →</a>
-      <a href="mailto:sandeep89shaily@gmail.com?subject=Portfolio%20Review%20Inquiry" class="btn-outline">Portfolio Review</a>
-      <a href="https://wa.me/16473549898?text=Hi%2C%20I%27m%20interested%20in%20Ascent%20Trading%20Academy" class="btn-outline" style="border-color:#D4A841;color:#D4A841" target="_blank">WhatsApp</a>
+      <a href="mailto:sandeep89shaily@gmail.com?subject=Portfolio%20Review%20Inquiry" class="btn-outline">Email — Portfolio Review</a>
+      <a href="https://wa.me/16473549898?text=Hi%2C%20I%27m%20interested%20in%20Ascent%20Trading%20Academy" class="btn btn-whatsapp" target="_blank">WhatsApp Us</a>
     </div>
   </div>
 </section>
